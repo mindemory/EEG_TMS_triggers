@@ -1,3 +1,4 @@
+function start_TMS_stim
 s = TMS('Open')
 TMS('Enable', s);
 TMS('Main', s);
@@ -49,3 +50,4 @@ pause (2)
 TMS('Single', s);
 TMS('Disable', s);
 TMS('Close', s);
+end

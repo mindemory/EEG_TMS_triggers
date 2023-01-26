@@ -1,5 +1,7 @@
 import sys
+fi = open('Failed.py', 'w')
+fi.write('whatever')
+fi.close()
 
-n = int(sys.argv[1])
+print('hi')
 
-print(n+1)

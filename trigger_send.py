@@ -3,7 +3,7 @@ from pyftdi.gpio import GpioAsyncController
 import time
 import sys
 
-trig_value = 0#int(sys.argv[1])
+trig_value = int(sys.argv[1])
 PulseWidth = 0.1
 
 #add the brainproducts Triggerbox to the known devices
@@ -35,7 +35,7 @@ print(gpio1.read())
 #	time.sleep(PulseWidth)
 
 while trig_value < 100:
-	trig_value = int(input('Next trig value:'))
+	#trig_value = int(input('Next trig value:'))
 	print(trig_value)
 	gpio1.write(trig_value)
 		
