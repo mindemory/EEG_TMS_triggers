@@ -3,8 +3,8 @@ from pyftdi.gpio import GpioAsyncController
 import time
 import sys
 
-trig_value = int(sys.argv[1])
-PulseWidth = 0.1
+#trig_value = int(sys.argv[1])
+PulseWidth = 0.05
 
 #add the brainproducts Triggerbox to the known devices
 Ftdi.add_custom_vendor(0x1103, "Brainproducts")
@@ -27,6 +27,18 @@ gpio1.write(0x00) # set all outputs to zero
 
 print("Read GPIO:")
 print(gpio1.read())
+
+
+curr_val = 0
+while True:
+	with open('/home/curtislab/Desktop/Mrugank/mgs_stimul/EEG_TMS_triggers/trig_vals.txt', 'r') as fi:
+		curr_val = fi.readlines()[-1]
+	if int(curr_val) == 100:
+		break
+	else:
+		gpio1.write(int(curr_val))
+		time.sleep(PulseWidth)
+
 #last_gpio2 = 0
 #for ii in range(256):
 #	print(ii)
@@ -34,10 +46,10 @@ print(gpio1.read())
 #	gpio2.write(ii)
 #	time.sleep(PulseWidth)
 
-while trig_value < 100:
-	#trig_value = int(input('Next trig value:'))
-	print(trig_value)
-	gpio1.write(trig_value)
+#while trig_value < 100:
+#	#trig_value = int(input('Next trig value:'))
+#	print(trig_value)
+#	gpio1.write(trig_value)
 		
 #time.sleep(PulseWidth)
 
