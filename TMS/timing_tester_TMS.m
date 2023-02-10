@@ -1,7 +1,7 @@
 clear; close all; clc;
-root_path = '/home/curtislab/Desktop/Mrugank/mgs_stimul/EEG_TMS_triggers';
+% Add Psychtoolbox
+addpath(genpath('/usr/share/psychtoolbox-3'))
 
-%system(['sudo python3 ' root_path '/trigger_send.py'])
 s = TMS('Open')
 TMS('Enable', s);
 TMS('Main', s);
@@ -12,9 +12,8 @@ endstamps = [];
 iters = 100;
 for i = 1:iters
     startstamps = [startstamps, GetSecs];
-    %start_TMS_stim();
-    %TMS('Single', s);
-    TMS('Train', s);
+    TMS('Single', s);
+    %TMS('Train', s);
     WaitSecs(0.15);
     pause(1);
     endstamps = [endstamps, GetSecs];
