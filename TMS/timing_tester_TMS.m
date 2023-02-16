@@ -9,7 +9,7 @@ TMS('Timing', s);
 TMS('Amplitude', s, 33);
 startstamps = [];
 endstamps = [];
-iters = 100;
+iters = 50;
 for i = 1:iters
     startstamps = [startstamps, GetSecs];
     TMS('Single', s);

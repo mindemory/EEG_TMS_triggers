@@ -30,9 +30,14 @@ gpio1.write(0x00) # set all outputs to zero
 
 
 curr_val = 0
-
-gpio1.write(int(curr_val))
-
+while True:
+	with open('/home/curtislab/Desktop/Mrugank/mgs_stimul/EEG_TMS_triggers/trig_vals.txt', 'r') as fi:
+		curr_val = fi.readlines()[-1]
+	if int(curr_val) == 100:
+		break
+	else:
+		gpio1.write(int(curr_val))
+		time.sleep(PulseWidth)
 
 #last_gpio2 = 0
 #for ii in range(256):
