@@ -78,7 +78,7 @@ Another example to send a train of pulses is:
 > TMS('Timing', s); % Use this page on TMS system to determine pulse protocol \
 > TMS('Amplitude', s, 33); % Sets amplitude to 33% MSO \
 > TMS ('Train', s); \
-> WaitSecs(pulse_dur); % pulse_dur should be milliseconds \
+> WaitSecs(pulse_dur); % pulse_dur should be seconds \
 > pause(1); \
 > TMS ('Disable', s); \
 > TMS('Close', s); 

@@ -78,13 +78,11 @@ else
             
         case 'Timing'
             % Switch to Timing menu page on the TMS machine
-            %fwrite(s,hex2dec({'FE','03','07','02','00','EB','FF'}),'uint8');
             fwrite(s, [254, 3, 7, 2, 0, 235, 255], 'uint8');
             fprintf('TMS machine set to Timing Menu Page\n');
             
         case 'Protocol'
             % Switch to Protocol menu page on the TMS machine
-            %fwrite(s,hex2dec({'FE','03','07','07','00','14','FF'}),'uint8');
             fwrite(s, [254, 3, 7, 7, 0, 20, 255], 'uint8');
             fprintf('TMS machine set to Protocol Tool Page\n');
             
@@ -99,7 +97,6 @@ else
         
         case 'Single'
             % Sends a single pulse at current amplitude
-            %fwrite(s,hex2dec({'FE','03','03','01','00','20','FF'}),'uint8');
             if length(varargin) < 2
                 fwrite(s, [254, 3, 3, 1, 0, 32, 255], 'uint8');
             else
@@ -111,7 +108,6 @@ else
             
         case 'Train'
             % Start a train at current amplitude
-            %fwrite(s,hex2dec({'FE', '03', '04', '00', '00', '9E', 'FF'}),'uint8');
             if length(varargin) < 2
                 fwrite(s, [254, 3, 4, 0, 0, 158, 255], 'uint8');
             else
@@ -123,19 +119,16 @@ else
 
         case 'Status'
             % Reports back the TMS machine status
-            %fwrite(s,hex2dec({'FE', '01', '05', '3F', 'FF'}),'uint8');
             fwrite(s, [254, 1, 5, 63, 255], 'uint8');
             fprintf('FE 0F 05 04 00 04 DB 17 52 00 00 00 00 64 64 01 00 5A FF Status OK\n');
             
         case 'Pause'
             % Pauses the TMS machine in tain sequence
-            %fwrite(s,hex2dec({'FE','03','04','01','00','5A','FF'}),'uint8');
             fwrite(s, [254, 3, 4, 1, 0, 90, 255], 'uint8');
             fprintf('TMS machine PAUSED\n');
 
         case 'Disable'
             % Disables the TMS machine
-            %fwrite(s,hex2dec({'FE','03','02','00','00','4F','FF'}),'uint8');
             fwrite(s, [254, 3, 2, 0, 0, 79, 255], 'uint8');
             fprintf('TMS machine DISABLED\n');
             
