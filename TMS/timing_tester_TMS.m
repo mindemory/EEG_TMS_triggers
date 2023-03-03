@@ -9,14 +9,16 @@ TMS('Timing', s);
 TMS('Amplitude', s, 33);
 startstamps = [];
 endstamps = [];
-iters = 50;
+iters = 10;
 for i = 1:iters
     startstamps = [startstamps, GetSecs];
-    TMS('Single', s);
-    %TMS('Train', s);
-    WaitSecs(0.15);
-    pause(1);
+    %TMS('Single', s);
+    TMS('Train', s);
+    
     endstamps = [endstamps, GetSecs];
+    
+    WaitSecs(2);
+    %pause(1);
 end
 
 TMS('Disable', s);
