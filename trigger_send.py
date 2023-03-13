@@ -4,7 +4,7 @@ import time
 import sys
 
 #trig_value = int(sys.argv[1])
-PulseWidth = 0.1
+PulseWidth = 0.0005
 
 #add the brainproducts Triggerbox to the known devices
 Ftdi.add_custom_vendor(0x1103, "Brainproducts")
@@ -22,7 +22,7 @@ gpio2 = GpioAsyncController()
 gpio1.configure('ftdi://Brainproducts:0x0021:TB1MSF2H/1', direction=0b11111111) #1-8, all outputs
 #gpio2.configure('ftdi://Brainproducts:0x0021:TB1MSF2H/2', direction=0b00000000) #8-15, all inputs
 
-gpio1.write(0x00) # set all outputs to zero
+#gpio1.write(0x00) # set all outputs to zero
 #gpio2.write(0x00) # set all outputs to zero
 
 #print("Read GPIO:")
@@ -32,7 +32,7 @@ gpio1.write(0x00) # set all outputs to zero
 curr_val = 0
 
 gpio1.write(int(curr_val))
-
+time.sleep(PulseWidth)
 
 #last_gpio2 = 0
 #for ii in range(256):
