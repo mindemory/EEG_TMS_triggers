@@ -4,7 +4,7 @@ import time
 import sys
 
 #trig_value = int(sys.argv[1])
-PulseWidth = 0.005
+PulseWidth = 0.05
 
 #add the brainproducts Triggerbox to the known devices
 Ftdi.add_custom_vendor(0x1103, "Brainproducts")
