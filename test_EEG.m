@@ -3,7 +3,7 @@ fname = ['sudo python3 ' root_path '/EEG/eegflag0.py &'];
 system(fname);
 ts = [];
 fs = [];
-for ii = 1:10
+for ii = 1:15
     disp(ii)
     ts = [ts GetSecs];
     fname = ['sudo python3 ' root_path '/EEG/eegflag' num2str(ii) '.py &']

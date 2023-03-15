@@ -16,7 +16,7 @@ gpio1.configure('ftdi://Brainproducts:0x0021:TB1MSF2H/1', direction=0b11111111) 
 
 curr_val = 11
 
-gpio1.write(int(curr_val))
+gpio1.write(curr_val)
 time.sleep(PulseWidth)
 
 gpio1.close()
