@@ -15,3 +15,7 @@ end
 
 
 
+hid = HID('vendorID', 0x1103, 'productID', 0x0021);
+fopen(hid);
+fwrite(hid, 1);
+fclose(hid);

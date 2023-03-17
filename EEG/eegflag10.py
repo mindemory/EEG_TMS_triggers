@@ -2,7 +2,7 @@ from pyftdi.ftdi import Ftdi
 from pyftdi.gpio import GpioAsyncController
 import time
 
-PulseWidth = 0.05
+PulseWidth = 0.01
 
 #add the brainproducts Triggerbox to the known devices
 Ftdi.add_custom_vendor(0x1103, "Brainproducts")
@@ -13,10 +13,11 @@ gpio1 = GpioAsyncController()
 
 #0 is in, 1 is out
 gpio1.configure('ftdi://Brainproducts:0x0021:TB1MSF2H/1', direction=0b11111111) #1-8, all outputs
+gpio1.write(0)
 
-curr_val = 10
+time.sleep(PulseWidth)
 
-gpio1.write(curr_val)
+gpio1.write(10)
 time.sleep(PulseWidth)
 
 gpio1.close()
