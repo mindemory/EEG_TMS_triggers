@@ -1,6 +1,8 @@
-root_path = '/home/curtislab/Desktop/Mrugank/mgs_stimul/EEG_TMS_triggers';
+%% Test one flag = flag 0
 fname = ['sudo python3 ' root_path '/EEG/eegflag0.py &'];
 system(fname);
+
+%% Test running all flags
 ts = [];
 fs = [];
 for ff = 1:15
@@ -12,10 +14,3 @@ for ff = 1:15
     WaitSecs(1);
     fs = [fs GetSecs];
 end
-
-
-
-hid = HID('vendorID', 0x1103, 'productID', 0x0021);
-fopen(hid);
-fwrite(hid, 1);
-fclose(hid);
